@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <title>ライブ登録</title>
-<link rel="stylesheet" th:href="@{/css/mt-style.css}">
+<link rel="stylesheet" th:href="@{/css/live-style.css}">
 </head>
 <body>
 
 	<h2>ライブ新規登録</h2>
 
-    <form th:action="@{/mt-regist}" method="POST" th:object="${liveRegistForm}">
+    <form th:action="@{/regist-live}" method="POST" th:object="${liveRegistForm}">
     	【ライブタイトル】<br>
     	<input type="text" th:field="*{liveTitle}" class="title"><br>
     	<div th:if="${#fields.hasErrors('liveTitle')}" th:errors="*{liveTitle}" class="error-msg"></div>
 		<br>
     	【日付】<br>
-    	<input type="text" th:field="*{date}"><br>
+    	<input type="date" th:field="*{date}"><br>
     	<div th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="error-msg"></div>
 		<br>
 		【会場】<br>

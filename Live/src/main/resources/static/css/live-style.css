@@ -2,7 +2,8 @@
 
 body {
 	font-family: BIZ UDPゴシック;
-	background-color: #98fb98;
+	background-color: #202020;
+	color: white;
 	text-align: center;
 }
 
@@ -13,7 +14,7 @@ h1 {
 
 h2 {
 	font-size: 28px;
-	background-color: green;
+	background-color: #202f55;
 	color: white;
 	padding-top: 6px;
 	padding-bottom: 6px;

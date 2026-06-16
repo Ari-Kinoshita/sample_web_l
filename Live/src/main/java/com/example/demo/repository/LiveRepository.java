@@ -4,6 +4,6 @@ import com.example.demo.entity.Live;
 
 public interface LiveRepository {
 
-	void add(Live resutaurant);
+	void add(Live live);
 	
 }

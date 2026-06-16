@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.entity.Live;
 import com.example.demo.form.LiveRegistForm;
 import com.example.demo.service.LiveRegistService;
 
@@ -26,14 +27,14 @@ public class RegistController {
 	}
 	
 	/*--- ライブ登録画面表示 ---*/
-	@PostMapping("/show-regist")
+	@PostMapping("/show-live-form")
 	public String liveShowRegist(@ModelAttribute LiveRegistForm form) {
 		return "live-regist";
 	}
 	
 	/*--- 登録リクエスト（登録画面より） ---*/
-	@PostMapping("/regist")
-	public String mtRegist(
+	@PostMapping("/regist-live")
+	public String RegistLive(
 		@Validated @ModelAttribute LiveRegistForm form,
 		BindingResult result ) {
 
@@ -55,12 +56,12 @@ public class RegistController {
 			return "live-regist";			// 入力がエラーの場合
 		}
 
-		LiveRegistForm r = new LiveRegistForm();
-		r.setDate(form.getDate());
-		r.setLiveTitle(form.getLiveTitle());
-		r.setPlace(form.getPlace());
+		Live live = new Live();
+		live.setDate(form.getDate());
+		live.setLiveTitle(form.getLiveTitle());
+		live.setPlace(form.getPlace());
 
-		service.regist(r);
+		service.regist(live);
 			
 		redirectAttributes.addFlashAttribute("msg", "(ライブ登録)");
 			

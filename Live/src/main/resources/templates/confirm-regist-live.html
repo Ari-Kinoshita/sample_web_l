@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録内容確認</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+		
+	<h2>登録内容確認</h2>
+
+	<table class="confirm-table" th:object="${reviewRegistForm}">
+		<tr>
+			<td class="guide">【日付】</td>
+			<td th:text="*{date}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【タイトル】</td>
+			<td th:text="*{liveTitle}"></td>
+		</tr>
+		<tr>
+			<td class="guide">【会場】</td>
+			<td th:text="*{place}"></td>
+		</tr>
+	</table>
+	<br>
+
+    <form th:action="@{/confirm-regist-review}" method="POST"
+			th:object="${reviewRegistForm}">
+    	<input type="hidden" th:field="*{date}">
+    	<input type="hidden" th:field="*{liveTitle}">
+    	<input type="hidden" th:field="*{place}">
+    	<input type="submit" value="登録実行" class="btn">
+   	</form>
+
+    <form th:action="@{/show-review-form-ret}" method="POST"
+			th:object="${reviewRegistForm}">
+		<input type="hidden" th:field="*{date}">
+		<input type="hidden" th:field="*{liveTitle}">
+		<input type="hidden" th:field="*{place}">
+    	<input type="submit" value="もどる" class="btn">
+   	</form>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ライブ登録</title>
+<link rel="stylesheet" th:href="@{/css/mt-style.css}">
+</head>
+<body>
+
+	<h2>ライブ新規登録</h2>
+
+    <form th:action="@{/mt-regist}" method="POST" th:object="${liveRegistForm}">
+    	【ライブタイトル】<br>
+    	<input type="text" th:field="*{liveTitle}" class="title"><br>
+    	<div th:if="${#fields.hasErrors('liveTitle')}" th:errors="*{liveTitle}" class="error-msg"></div>
+		<br>
+    	【日付】<br>
+    	<input type="text" th:field="*{date}"><br>
+    	<div th:if="${#fields.hasErrors('date')}" th:errors="*{date}" class="error-msg"></div>
+		<br>
+		【会場】<br>
+		<input type="text" th:field="*{place}" class="place"><br>
+		<div th:if="${#fields.hasErrors('place')}" th:errors="*{place}" class="error-msg"></div>
+		<br>
+    	<input type="submit" value="登録" class="btn">
+    </form>
+
+	<br>
+	<a th:href="@{/live-top}">トップに戻る</a>
+
+</body>
+</html>

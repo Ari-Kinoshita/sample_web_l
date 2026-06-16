@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Live {
 	
-//	private int liveId;
+	private int liveId;
 	private Date date;
 	private String liveTitle;
 	private String place;
